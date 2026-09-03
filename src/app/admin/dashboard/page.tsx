@@ -56,8 +56,8 @@ export default function AdminDashboard() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-2xl font-bold tracking-tight text-slate-900">Dashboard</h2>
+      <div data-testid="admin-dashboard">
+        <h2 data-testid="dashboard-header" className="text-2xl font-bold tracking-tight text-slate-900">Dashboard</h2>
         <p className="text-sm text-slate-500">Welcome back to CliniCare Admin Panel</p>
       </div>
       

@@ -39,7 +39,7 @@ export default function AppointmentPage() {
                   <div className="h-24 w-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <CheckCircle2 className="h-12 w-12" />
                   </div>
-                  <h2 className="text-3xl font-bold text-slate-900 mb-4">Appointment Requested!</h2>
+                  <h2 data-testid="appointment-success" className="text-3xl font-bold text-slate-900 mb-4">Appointment Requested!</h2>
                   <p className="text-lg text-slate-600 mb-8 max-w-md mx-auto">
                     We have received your appointment request. Our team will contact you shortly to confirm the exact time.
                   </p>
@@ -81,7 +81,7 @@ export default function AppointmentPage() {
                       <div className="grid md:grid-cols-2 gap-6 mb-6">
                         <div className="space-y-2">
                           <label className="text-sm font-medium text-slate-700">Department</label>
-                          <select className="flex h-10 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 focus-visible:border-blue-500" required>
+                          <select data-testid="appointment-department" className="flex h-10 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 focus-visible:border-blue-500" required>
                             <option value="">Select Department</option>
                             <option value="cardiology">Cardiology</option>
                             <option value="neurology">Neurology</option>
@@ -91,7 +91,7 @@ export default function AppointmentPage() {
                         </div>
                         <div className="space-y-2">
                           <label className="text-sm font-medium text-slate-700">Doctor (Optional)</label>
-                          <select className="flex h-10 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 focus-visible:border-blue-500">
+                          <select data-testid="appointment-doctor" className="flex h-10 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 focus-visible:border-blue-500">
                             <option value="">Any Available Doctor</option>
                             <option value="1">Dr. Sarah Smith</option>
                             <option value="2">Dr. Michael Chen</option>
@@ -101,11 +101,11 @@ export default function AppointmentPage() {
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-2">
                           <label className="text-sm font-medium text-slate-700">Preferred Date</label>
-                          <Input type="date" required />
+                          <Input type="date" data-testid="appointment-date" required />
                         </div>
                         <div className="space-y-2">
                           <label className="text-sm font-medium text-slate-700">Preferred Time</label>
-                          <select className="flex h-10 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 focus-visible:border-blue-500" required>
+                          <select data-testid="appointment-time" className="flex h-10 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 focus-visible:border-blue-500" required>
                             <option value="">Select Time</option>
                             <option value="morning">Morning (9AM - 12PM)</option>
                             <option value="afternoon">Afternoon (12PM - 4PM)</option>
@@ -113,9 +113,14 @@ export default function AppointmentPage() {
                           </select>
                         </div>
                       </div>
+                      
+                      <div className="space-y-2 mt-6">
+                        <label className="text-sm font-medium text-slate-700">Reason for Visit</label>
+                        <textarea data-testid="appointment-reason" className="flex min-h-[80px] w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 focus-visible:border-blue-500" placeholder="Briefly describe your symptoms or reason for visit"></textarea>
+                      </div>
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full h-14 rounded-xl text-lg font-semibold shadow-xl shadow-blue-500/20 mt-4">
+                    <Button type="submit" data-testid="appointment-submit" size="lg" className="w-full h-14 rounded-xl text-lg font-semibold shadow-xl shadow-blue-500/20 mt-4">
                       Request Appointment
                     </Button>
                   </form>

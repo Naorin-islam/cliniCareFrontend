@@ -31,7 +31,7 @@ export default function DoctorDashboard() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
+    <div className="min-h-screen bg-slate-50 flex flex-col" data-testid="doctor-dashboard">
       {/* Doctor Header */}
       <header className="bg-white border-b sticky top-0 z-10 shadow-sm">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -51,7 +51,7 @@ export default function DoctorDashboard() {
         {/* Left Column */}
         <div className="flex-1 space-y-6">
           <div>
-            <h1 className="text-3xl font-bold text-slate-900 mb-2">Welcome, Dr. {user?.name?.split(' ')[0] || 'Doctor'}</h1>
+            <h1 data-testid="dashboard-header" className="text-3xl font-bold text-slate-900 mb-2">Welcome, Dr. {user?.name?.split(' ')[0] || 'Doctor'}</h1>
             <p className="text-slate-500">Here is your schedule and patient updates for today.</p>
           </div>
 
@@ -78,7 +78,7 @@ export default function DoctorDashboard() {
               <Button variant="link" className="text-blue-600">View All</Button>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
+              <div className="space-y-4" data-testid="doctor-appointments">
                 {isLoading ? (
                   <div className="text-center py-4 text-slate-500">Loading appointments...</div>
                 ) : appointments.length === 0 ? (

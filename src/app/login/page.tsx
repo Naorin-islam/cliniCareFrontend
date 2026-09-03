@@ -82,7 +82,7 @@ export default function LoginPage() {
           <CardContent>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               {error && (
-                <div className="p-3 text-sm text-red-500 bg-red-50 rounded-md">
+                <div data-testid="login-error" className="p-3 text-sm text-red-500 bg-red-50 rounded-md">
                   {error}
                 </div>
               )}
@@ -93,6 +93,7 @@ export default function LoginPage() {
                 </label>
                 <Input 
                   type="email" 
+                  data-testid="login-email"
                   placeholder="admin@clinicare.com" 
                   {...register("email")} 
                   className={errors.email ? "border-red-500" : ""}
@@ -111,6 +112,7 @@ export default function LoginPage() {
                 </div>
                 <Input 
                   type="password" 
+                  data-testid="login-password"
                   placeholder="••••••••" 
                   {...register("password")}
                   className={errors.password ? "border-red-500" : ""}
@@ -124,6 +126,7 @@ export default function LoginPage() {
                 </label>
                 <select 
                   {...register("role")}
+                  data-testid="login-role"
                   className={`flex h-10 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${errors.role ? "border-red-500" : ""}`}
                 >
                   <option value="">Select your role</option>
@@ -142,7 +145,7 @@ export default function LoginPage() {
                 </label>
               </div>
 
-              <Button type="submit" className="w-full" disabled={isLoading}>
+              <Button type="submit" data-testid="login-button" className="w-full" disabled={isLoading}>
                 {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
                 Sign in
               </Button>

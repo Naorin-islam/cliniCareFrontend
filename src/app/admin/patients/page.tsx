@@ -40,7 +40,7 @@ export default function AdminPatientsPage() {
           <h2 className="text-2xl font-bold tracking-tight text-slate-900">Patients</h2>
           <p className="text-sm text-slate-500">Manage hospital patients and records.</p>
         </div>
-        <Button className="gap-2">
+        <Button className="gap-2" data-testid="add-patient-button">
           <Plus className="h-4 w-4" />
           Add Patient
         </Button>
@@ -61,7 +61,7 @@ export default function AdminPatientsPage() {
           </div>
         </CardHeader>
         <CardContent>
-          <Table>
+          <Table data-testid="patient-list">
             <TableHeader>
               <TableRow>
                 <TableHead>Patient ID</TableHead>

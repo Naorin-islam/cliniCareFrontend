@@ -49,6 +49,7 @@ export function Sidebar() {
             <Link
               key={link.name}
               href={link.href}
+              data-testid={`menu-${link.name.toLowerCase().replace(/s$/, '')}`}
               className={cn(
                 "flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 group relative",
                 isActive 
@@ -69,6 +70,7 @@ export function Sidebar() {
       <div className="p-4 border-t border-white/5 bg-slate-900/30">
         <button 
           onClick={logout}
+          data-testid="logout-button"
           className="flex w-full items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-red-400 hover:bg-red-400/10 transition-colors"
         >
           <LogOut className="h-5 w-5 shrink-0" />
